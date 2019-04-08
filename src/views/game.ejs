@@ -4,7 +4,13 @@
   const gameId = '<%= gameId %>';
 
   // Fetch the current users cards here from `/games/${gameId}/cards`
-
+  var myRequest = new XMLHttpRequest();
+  myRequest.open('GET', '/games/${gameId}/cards');
+  myRequest.onreadystatechange = function () { 
+   if (myRequest.readyState === 4) 
+   {
+     document.getElementById('ajax-content').innerHTML = myRequest.responseText;
+   }
 
 
   const checkExchangeStatus = function(){
