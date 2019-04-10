@@ -1,4 +1,4 @@
-<h3>Your hand TESTING 4:</h3>
+<h3>Your hand TESTING 3:</h3>
 
 <script>
   const gameId = '<%= gameId %>';
@@ -11,34 +11,13 @@
       request.send(null);
 
       function handleStateChange() {
-
+        //  4 is yes
           if (request.readyState === 4) {
 
               if (this.status >= 200 && this.status < 300) {
 
-                [
-                  {
-                    "images": {
-                      "svg": "https://deckofcardsapi.com/static/img/4H.svg",
-                      "png": "https://deckofcardsapi.com/static/img/4H.png"
-                    },
-                    "code": "4H",
-                    "value": "4",
-                    "suit": "HEARTS",
-                    "image": "https://deckofcardsapi.com/static/img/4H.png"
-                  },
-                  {
-                    "images": {
-                      "svg": "https://deckofcardsapi.com/static/img/9D.svg",
-                      "png": "https://deckofcardsapi.com/static/img/9D.png"
-                    },
-                    "code": "9D",
-                    "value": "9",
-                    "suit": "DIAMONDS",
-                    "image": "https://deckofcardsapi.com/static/img/9D.png"
-                  },
-                  ...
-                ]
+                  var elm = document.getElementById("js_script");
+                  elm.innerHTML = request.responseText;
               }
           }
       }
