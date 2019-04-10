@@ -16,8 +16,29 @@
 
               if (this.status >= 200 && this.status < 300) {
 
-                  var elm = document.getElementById("js_script");
-                  elm.innerHTML = request.responseText;
+                [
+                  {
+                    "images": {
+                      "svg": "https://deckofcardsapi.com/static/img/4H.svg",
+                      "png": "https://deckofcardsapi.com/static/img/4H.png"
+                    },
+                    "code": "4H",
+                    "value": "4",
+                    "suit": "HEARTS",
+                    "image": "https://deckofcardsapi.com/static/img/4H.png"
+                  },
+                  {
+                    "images": {
+                      "svg": "https://deckofcardsapi.com/static/img/9D.svg",
+                      "png": "https://deckofcardsapi.com/static/img/9D.png"
+                    },
+                    "code": "9D",
+                    "value": "9",
+                    "suit": "DIAMONDS",
+                    "image": "https://deckofcardsapi.com/static/img/9D.png"
+                  },
+                  ...
+                ]
               }
           }
       }
