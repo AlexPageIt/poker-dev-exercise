@@ -1,26 +1,47 @@
-<h3>Your hand TESTING 4:</h3>
+<h3>Your hand TESTING 3:</h3>
 
 <script>
   const gameId = '<%= gameId %>';
 
   // Fetch the current users cards here from `/games/${gameId}/cards`
-  function sendRequest() {
-      var request = new XMLHttpRequest();
-      request.open('GET', '/games/${gameId}/cards', false);
-      request.onreadystatechange = handleStateChange;
-      request.send(null);
-
-      function handleStateChange() {
+//  function sendRequest() {
+//var request = new XMLHttpRequest();
+//request.open('GET', '/games/${gameId}/cards', false);
+  //   request.onreadystatechange = handleStateChange;
+//request.send(null);
+//
+//function handleStateChange() {
         //  4 is yes
-          if (request.readyState === 4) {
-              if (this.status >= 200 && this.status < 300) {
+      //    if (request.readyState === 4) {
+//
+//if (this.status >= 200 && this.status < 300) {
+//
+          //        var elm = document.getElementById("http://deckofcardsapi.com/");
+          //        elm.innerHTML = request.responseText;
+          //    }
+//}
+//  }
+//  }
 
-                image.src = "https://deckofcardsapi.com/static/img/4H.png";
-                  }
-              }
-          }
-      }
-  }
+function send_with_ajax( ){
+
+    xhr.open("GET", "/games/${gameId}/cards", true);
+    xhr.overrideMimeType('text/plain; charset=x-user-defined');
+    xhr.send(null);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4){
+            if ((xhr.status == 200) || (xhr.status == 0)){
+                var image = document.getElementById("get_img");
+                image.src = "data:image/gif;base64," + encode64(xhr.responseText);
+            }else{
+                alert("Something misconfiguration : " +
+                    "\nError Code : " + xhr.status +
+                    "\nError Message : " + xhr.responseText);
+            }
+        }
+    };
+}
 
 
   const checkExchangeStatus = function(){
