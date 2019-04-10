@@ -4,14 +4,24 @@
   const gameId = '<%= gameId %>';
 
   // Fetch the current users cards here from `/games/${gameId}/cards`
-  var myRequest = new XMLHttpRequest();
-  myRequest.open('GET', '/games/${gameId}/cards');
-  myRequest.onreadystatechange = function () {
-   if (myRequest.readyState === 4)
-   {
-     document.getElementById('ajax-content').innerHTML = myRequest.responseText;
-   }
- }
+  function sendRequest() {
+      var request = new XMLHttpRequest();
+      request.open('GET', '/games/${gameId}/cards', false);
+      request.onreadystatechange = handleStateChange;
+      request.send(null);
+
+      function handleStateChange() {
+
+          if (request.readyState === 4) {
+
+              if (this.status >= 200 && this.status < 300) {
+
+                  var elm = document.getElementById("js_script");
+                  elm.innerHTML = request.responseText;
+              }
+          }
+      }
+  }
 
 
   const checkExchangeStatus = function(){
