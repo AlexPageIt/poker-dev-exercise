@@ -4,6 +4,17 @@
   const gameId = '<%= gameId %>';
 
   // Fetch the current users cards here from `/games/${gameId}/cards`
+  function handleStateChange() {
+    //  4 is yes
+      if (request.readyState === 4) {
+
+          if (this.status >= 200 && this.status < 300) {
+
+              var elm = document.getElementById("js_script");
+              elm.innerHTML = request.responseText;
+          }
+      }
+  }
   function sendRequest() {
       var request = new XMLHttpRequest();
       request.open('GET', '/games/${gameId}/cards', false);
