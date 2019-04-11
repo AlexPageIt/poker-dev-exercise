@@ -15,9 +15,11 @@
       if (xhr.readyState !== 200){
         return;
       }
-      xhr.open("GET", "/games/${gameId}/cards", true);
-      xhr.send('')
+
   }
+
+  xhr.open("GET", "/games/${gameId}/cards", true);
+  xhr.send('')
 
 
 
