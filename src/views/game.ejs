@@ -28,7 +28,7 @@ const sendcardrequest = function(){
   const checkExchangeStatus = function(){
     $.ajax(`/games/${gameId}/allExchanged`).done(function(data, textStatus, xhr){
       if (xhr.status !== 202) { // not pending
-
+        sendcardrequest()
         document.location = `/games/${gameId}/result`;
       }
     })
